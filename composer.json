@@ -1,0 +1,25 @@
+{
+    "name": "mkomorowski/php-dot-get",
+    "type": "library",
+    "description": "Array dot notation access",
+    "keywords": ["php", "array", "dot", "get", "notation", "access"],
+    "homepage": "https://github.com/mKomorowski/php-dot-get",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michal Komorowski",
+            "email": "mkomorowski@windowslive.com"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "mKomorowski\\Notation\\": ["src/php-dot-get"]
+        }
+    },
+    "require": {
+        "php": ">=5.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    }
+}
