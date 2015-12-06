@@ -1,7 +1,7 @@
 <?php namespace mKomorowski\Notation;
 
 /**
- * Class DotArray
+ * Class Dot
  * @package mKomorowski\Notation
  */
 class Dot
