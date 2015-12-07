@@ -22,6 +22,8 @@ class Dot
     }
 
     /**
+     * Get value from given array
+     * Return $default if value do not exists
      * @param array $array
      * @param string $keyPath
      * @return array|null
@@ -29,6 +31,17 @@ class Dot
     public function get(array $array, $keyPath)
     {
         return $this->extractValue($array, $keyPath);
+    }
+
+    /**
+     * Check if value exists in given array and it is not null
+     * @param array $array
+     * @param string $keyPath
+     * @return array|null
+     */
+    public function exists(array $array, $keyPath)
+    {
+        return $this->extractValue($array, $keyPath) !== null;
     }
 
     /**
