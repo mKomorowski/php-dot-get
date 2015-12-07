@@ -10,7 +10,8 @@ class DotTest extends PHPUnit_Framework_TestCase
         'continent' => array(
             'Europe' => array(
                 'Neverland' => array(
-                    'isReal' => false
+                    'isReal' => false,
+                    'capital' => 'Capital'
                 )
             )
         ),
@@ -54,6 +55,13 @@ class DotTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->dot->exists($this->sampleArray, 'values.array'));
     }
 
+    public function testAssertReturnCorrectValue()
+    {
+        $this->assertTrue($this->dot->exists($this->sampleArray, 'values.false', true), false);
+        $this->assertTrue($this->dot->exists($this->sampleArray, 'continent.Europe.Neverland.capital', 'Capital'), true);
+        $this->assertFalse($this->dot->exists($this->sampleArray, 'values.undefined', false), false);
+    }
+
     public function getProvider()
     {
         return array(
@@ -61,7 +69,7 @@ class DotTest extends PHPUnit_Framework_TestCase
             array('name', 'test'),
             array('nonExisting', null),
             array('continent.Europe.Neverland.isReal', false),
-            array('continent.Europe.Neverland', array('isReal' => false)),
+            array('continent.Europe.Neverland', array('isReal' => false, 'capital' => 'Capital')),
             array('values.null', null),
             array('values.false', false),
             array('values.array', array()),
