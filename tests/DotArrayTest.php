@@ -30,7 +30,7 @@ class DotTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider getProvider
      */
-    public function testGetReturnCorrectArgument($key, $expectation)
+    public function testGetReturnCorrectValue($key, $expectation)
     {
         $value = $this->dot->get($this->sampleArray, $key);
 
@@ -44,6 +44,14 @@ class DotTest extends PHPUnit_Framework_TestCase
         $value = $this->dot->get($this->sampleArray, 'nonExists.key.something');
 
         $this->assertEquals($default, $value);
+    }
+
+    public function testExistsReturnCorrectValue()
+    {
+        $this->assertFalse($this->dot->exists($this->sampleArray, 'values.undefined'));
+        $this->assertTrue($this->dot->exists($this->sampleArray, 'values.false'));
+        $this->assertFalse($this->dot->exists($this->sampleArray, 'values.null'));
+        $this->assertTrue($this->dot->exists($this->sampleArray, 'values.array'));
     }
 
     public function getProvider()
