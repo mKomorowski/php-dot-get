@@ -45,6 +45,18 @@ class Dot
     }
 
     /**
+     * Check if value match given assertion
+     * @param array $array
+     * @param string $keyPath
+     * @param mixed $assertion
+     * @return bool
+     */
+    public function assert(array $array, $keyPath, $assertion)
+    {
+        return $this->extractValue($array, $keyPath) !== $assertion;
+    }
+
+    /**
      * @param array $array
      * @param string $keyPath
      * @return array|null
