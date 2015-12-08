@@ -34,3 +34,13 @@ $array = array(
 
 $city = $dot->get($array, 'address.city');
 ```
+
+Tell if the value isset in array
+```php
+$exists = $dot->exists($array, 'address.city');
+```
+
+Set default value returned if given key is not found in array
+```php
+$dot->setDefault('undefined');
+```
