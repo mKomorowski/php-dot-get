@@ -53,7 +53,7 @@ class Dot
      */
     public function assert(array $array, $keyPath, $assertion)
     {
-        return $this->extractValue($array, $keyPath) !== $assertion;
+        return $this->extractValue($array, $keyPath) === $assertion;
     }
 
     /**

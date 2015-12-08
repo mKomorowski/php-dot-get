@@ -57,9 +57,10 @@ class DotTest extends PHPUnit_Framework_TestCase
 
     public function testAssertReturnCorrectValue()
     {
-        $this->assertTrue($this->dot->exists($this->sampleArray, 'values.false', true), false);
-        $this->assertTrue($this->dot->exists($this->sampleArray, 'continent.Europe.Neverland.capital', 'Capital'), true);
-        $this->assertFalse($this->dot->exists($this->sampleArray, 'values.undefined', false), false);
+        $this->assertTrue($this->dot->assert($this->sampleArray, 'values.false', false));
+        $this->assertTrue($this->dot->assert($this->sampleArray, 'continent.Europe.Neverland.capital', 'Capital'));
+        $this->assertFalse($this->dot->assert($this->sampleArray, 'continent.Europe.Neverland.capital', 'capital'));
+        $this->assertFalse($this->dot->assert($this->sampleArray, 'values.undefined', false));
     }
 
     public function getProvider()
