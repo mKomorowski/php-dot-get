@@ -21,3 +21,16 @@ php composer.phar install
 ```php
 $dot = new mKomorowski\Notation\Dot;
 ```
+Get value from array
+```php
+$array = array(
+    'name' => 'Name'
+    'firstname' => 'FirstName',
+    'address' > array(
+        'street' => '',
+        'city' => 'Leeds'
+    )
+);
+
+$city = $dot->get($array, 'address.city');
+```
