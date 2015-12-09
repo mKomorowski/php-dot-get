@@ -24,9 +24,9 @@ $dot = new mKomorowski\Notation\Dot;
 Get value from array
 ```php
 $array = array(
-    'name' => 'Name'
+    'name' => 'Name',
     'firstname' => 'FirstName',
-    'address' > array(
+    'address' => array(
         'street' => '',
         'city' => 'Leeds'
     )
