@@ -32,15 +32,24 @@ $array = array(
     )
 );
 
-$city = $dot->get($array, 'address.city');
+$dot->get($array, 'address.city'); // 'Leeds'
 ```
 
 Tell if the value isset in array
 ```php
-$exists = $dot->exists($array, 'address.city');
+$dot->exists($array, 'address.city'); // true
 ```
 
 Set default value returned if given key is not found in array
 ```php
+$dot->get($array, 'address.country') // null
+
 $dot->setDefault('undefined');
+
+$dot->get($array, 'address.country') // 'undefined'
+```
+
+Compare requested value with given one
+```php
+$dot->assert($array, 'name', 'Name') // true
 ```
